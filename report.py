@@ -9,13 +9,13 @@ class Report:
     self.soup = BeautifulSoup(html, 'html5lib')
     self.year = 2020
 
-  def 信号色(self):
+  def signal_color(self):
     text = self.soup.find(class_ = 'shingo_title').text
     match = re.compile('大阪府新型コロナ警戒信号：(.)色').search(text)
     return SignalColor.parse(match.group(1))
 
-  def 日付(self):
-    text = self.__details().group('日付')
+  def date(self):
+    text = self.__details().group('date')
     return datetime.strptime(text, '%m月%d日').date().replace(year=self.year)
   
   def 感染経路不明者の前週増加比(self):
@@ -46,7 +46,7 @@ class Report:
      大阪モデル・モニタリング指標
     </th>
     <th(?:.+?)>
-     (?P<日付>.+)
+     (?P<date>.+)
      <br/>
      現在
     </th>

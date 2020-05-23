@@ -4,13 +4,13 @@ from signal_color import SignalColor
 from datetime import date
 
 class TestReport(unittest.TestCase):
-  def test_信号色(self):
+  def test_signal_color(self):
     report = self.__prepare_report('normal')
-    self.assertEqual(report.信号色(), SignalColor.GREEN)
+    self.assertEqual(report.signal_color(), SignalColor.GREEN)
   
-  def test_日付(self):
+  def test_date(self):
     report = self.__prepare_report('normal')
-    self.assertEqual(report.日付(), date(2020, 5, 22))
+    self.assertEqual(report.date(), date(2020, 5, 22))
 
   def test_感染経路不明者の前週増加比(self):
     report = self.__prepare_report('normal')
