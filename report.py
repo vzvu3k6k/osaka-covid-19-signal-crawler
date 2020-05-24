@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 class Report:
   def __init__(self, html, year=2020):
     self.soup = BeautifulSoup(html, 'html5lib')
-    self.year = 2020
+    self.year = year
 
   def signal_color(self):
     text = self.soup.find(class_ = 'shingo_title').text
