@@ -23,22 +23,22 @@ class Report:
 
   def 感染経路不明者(self):
     text = self.__details().group('感染経路不明者')
-    match = re.compile(r'([\d+\.]+)人').search(text)
+    match = re.search(r'([\d+\.]+)人', text)
     return float(match.group(1))
 
   def 確定診断検査における陽性率(self):
     text = self.__details().group('確定診断検査における陽性率')
-    match = re.compile(r'([\d+\.]+)%').search(text)
+    match = re.search(r'([\d+\.]+)%', text)
     return float(match.group(1)) * 0.01
 
   def 患者受入重症病床使用率(self):
     text = self.__details().group('患者受入重症病床使用率')
-    match = re.compile(r'([\d+\.]+)%').search(text)
+    match = re.search(r'([\d+\.]+)%', text)
     return float(match.group(1)) * 0.01
 
   def __details(self):
     details = self.soup.find(class_ = 'shingo-meisai-waku').prettify()
-    pattern = re.compile(r'''<div class="shingo-meisai-waku">
+    pattern = r'''<div class="shingo-meisai-waku">
  <table>
   <tbody>
    <tr>
@@ -139,5 +139,5 @@ class Report:
  <div(?:.+?)>
   ※病床使用率以外の指標は７日間移動平均。
   <br/>
- </div>''')
-    return pattern.search(details)
+ </div>'''
+    return re.search(pattern, details)
