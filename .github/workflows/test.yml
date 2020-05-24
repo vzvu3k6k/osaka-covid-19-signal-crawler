@@ -1,0 +1,16 @@
+name: Test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - uses: dschep/install-pipenv-action@v1
+    - run: pipenv install --dev
+    - run: pipenv run python -m unittest
