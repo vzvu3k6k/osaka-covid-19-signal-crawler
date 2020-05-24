@@ -1,0 +1,23 @@
+name: Crawl
+
+on:
+  schedule:
+    - cron: '5 15 * * *' # 0:05 JST
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - run: |
+        pip install pipenv
+        pipenv install --deploy --dev
+    - run: pipenv run python crawl.py
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}
+        GIT_COMMITTER_EMAIL: ${{ secrets.GIT_COMMITTER_EMAIL }}
