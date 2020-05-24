@@ -6,6 +6,10 @@ class SignalColor(Enum):
   GREEN = auto()
 
   @classmethod
+  def stringify(self, color):
+    return color.name.lower()
+
+  @classmethod
   def parse(self, color_name):
     if color_name == '赤':
       return self.RED
