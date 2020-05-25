@@ -1,8 +1,8 @@
 import unittest
-from report import Report
-from signal_color import SignalColor
 from datetime import date
-from test_utils import prepare_report
+from .common import prepare_report
+from ..report import Report
+from ..signal_color import SignalColor
 
 class TestReport(unittest.TestCase):
   def test_signal_color(self):
