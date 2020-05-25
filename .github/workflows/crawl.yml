@@ -16,7 +16,7 @@ jobs:
     - run: |
         pip install pipenv
         pipenv install --deploy --dev
-    - run: pipenv run python crawl.py
+    - run: pipenv run python signal_crawler/crawl.py
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GIT_COMMITTER_NAME: ${{ secrets.GIT_COMMITTER_NAME }}

@@ -1,7 +1,7 @@
 import re
 import functools
 from datetime import datetime
-from signal_color import SignalColor
+from .signal_color import SignalColor
 from bs4 import BeautifulSoup
 
 class Report:

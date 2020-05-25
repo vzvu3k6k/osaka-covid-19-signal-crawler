@@ -1,5 +1,5 @@
 import json
-from signal_color import SignalColor
+from .signal_color import SignalColor
 
 class ReportJsonPresenter:
   def __init__(self, report):

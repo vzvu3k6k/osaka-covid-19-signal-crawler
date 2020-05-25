@@ -1,5 +1,5 @@
 import unittest
-from signal_color import SignalColor
+from ..signal_color import SignalColor
 
 class TestSignalColor(unittest.TestCase):
   def test_stringify(self):

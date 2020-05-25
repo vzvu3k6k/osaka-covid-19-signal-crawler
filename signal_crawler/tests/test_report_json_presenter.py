@@ -1,6 +1,6 @@
 import unittest
-from test_utils import prepare_report
-from report_json_presenter import ReportJsonPresenter
+from .common import prepare_report
+from ..report_json_presenter import ReportJsonPresenter
 
 class TestReportJsonPresenter(unittest.TestCase):
   def setUp(self):
