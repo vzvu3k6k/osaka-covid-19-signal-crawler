@@ -1,8 +1,8 @@
 import os
 import http.client
 import github
-from .report import Report
-from .report_json_presenter import ReportJsonPresenter
+from signal_crawler.report import Report
+from signal_crawler.report_json_presenter import ReportJsonPresenter
 
 def fetch_page():
   conn = http.client.HTTPConnection("www.pref.osaka.lg.jp")
