@@ -5,7 +5,6 @@ on:
     - cron: '5 15 * * *' # 0:05 JST
   repository_dispatch:
     types: [crawl]
-  push:
 
 jobs:
   build:
