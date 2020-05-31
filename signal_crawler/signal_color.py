@@ -5,8 +5,8 @@ class SignalColor(Enum):
   YELLOW = auto()
   GREEN = auto()
 
-  @classmethod
-  def stringify(self, color):
+  @staticmethod
+  def stringify(color):
     return color.name.lower()
 
   @classmethod
