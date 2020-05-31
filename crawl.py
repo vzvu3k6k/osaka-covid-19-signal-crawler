@@ -5,11 +5,11 @@ from signal_crawler.report import Report
 from signal_crawler.report_json_presenter import ReportJsonPresenter
 
 def fetch_page():
-  conn = http.client.HTTPConnection("www.pref.osaka.lg.jp")
-  conn.request("GET", "/default.html")
+  conn = http.client.HTTPConnection('www.pref.osaka.lg.jp')
+  conn.request('GET', '/default.html')
   response = conn.getresponse()
   if (response.status != 200):
-    raise RuntimeError(f"HTTP request failed (status: {response.status})")
+    raise RuntimeError(f'HTTP request failed (status: {response.status})')
   return response.read().decode('CP932')
 
 def get_repository(token, repository):
@@ -17,10 +17,10 @@ def get_repository(token, repository):
 
 def save_json(repository, report, committer):
   return repository.create_file(
-    path=f"v1/{report.filename()}",
+    path=f'v1/{report.filename()}',
     content=report.content(),
-    message="Update",
-    branch="gh-pages",
+    message='Update',
+    branch='gh-pages',
     committer=committer,
   )
 
@@ -28,11 +28,11 @@ html = fetch_page()
 report = Report(html)
 
 repository = get_repository(
-  os.environ.get("GITHUB_TOKEN"),
-  os.environ.get("GITHUB_REPOSITORY")
+  os.environ.get('GITHUB_TOKEN'),
+  os.environ.get('GITHUB_REPOSITORY')
 )
 committer = github.InputGitAuthor(
-  os.environ.get("GIT_COMMITTER_NAME"),
-  os.environ.get("GIT_COMMITTER_EMAIL")
+  os.environ.get('GIT_COMMITTER_NAME'),
+  os.environ.get('GIT_COMMITTER_EMAIL')
 )
 save_json(repository, ReportJsonPresenter(report), committer)
