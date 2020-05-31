@@ -11,7 +11,7 @@ class Report:
 
   def signal_color(self):
     text = self.soup.find(class_ = 'shingo_title').text
-    match = re.compile('大阪府新型コロナ警戒信号：(.)色').search(text)
+    match = re.search('大阪府新型コロナ警戒信号：(.)色', text)
     return SignalColor.parse(match.group(1))
 
   def date(self):
