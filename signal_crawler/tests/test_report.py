@@ -29,5 +29,9 @@ class TestReport(unittest.TestCase):
     report = prepare_report('normal')
     self.assertEqual(report.患者受入重症病床使用率(), 0.154)
 
+  def test_unclosed_td(self):
+    report = prepare_report('unclosed_td')
+    self.assertEqual(report.患者受入重症病床使用率(), 0.154)
+
 if __name__ == '__main__':
   unittest.main()
