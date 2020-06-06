@@ -6,9 +6,8 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-beautifulsoup4 = "*"
-html5lib = "*"
 pygithub = "*"
+signal-crawler = {editable = true, path = "."}
 
 [requires]
 python_version = "3.8"
