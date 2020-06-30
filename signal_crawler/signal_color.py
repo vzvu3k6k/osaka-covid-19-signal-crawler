@@ -7,6 +7,8 @@ class SignalColor(Enum):
 
   @staticmethod
   def stringify(color):
+    if color is None:
+      return None
     return color.name.lower()
 
   @classmethod
