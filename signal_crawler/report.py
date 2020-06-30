@@ -10,8 +10,11 @@ class Report:
     self.year = year
 
   def signal_color(self):
-    text = self.soup.find(class_ = 'shingo_title').text
-    match = re.search('大阪府新型コロナ警戒信号：(.)色', text)
+    node = self.soup.find(class_ = 'shingo_title')
+    if node is None:
+      return None
+
+    match = re.search('大阪府新型コロナ警戒信号：(.)色', node.text)
     return SignalColor.parse(match.group(1))
 
   def date(self):
