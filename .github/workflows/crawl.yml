@@ -1,10 +1,10 @@
 name: Crawl
 
-on:
-  schedule:
-    - cron: '5 15 * * *' # 0:05 JST
-  repository_dispatch:
-    types: [crawl]
+on: []
+#  schedule:
+#    - cron: '5 15 * * *' # 0:05 JST
+#  repository_dispatch:
+#    types: [crawl]
 
 jobs:
   build:
